@@ -8,7 +8,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-4D7E6SI4.js";
+} from "./chunk-MJL4VXPA.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
