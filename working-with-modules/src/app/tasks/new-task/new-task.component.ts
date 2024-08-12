@@ -1,14 +1,14 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, inject } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { TasksService } from '../tasks.service';
+import { TasksService } from "../tasks.service";
 
 @Component({
-  selector: 'app-new-task',
+  selector: "app-new-task",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './new-task.component.html',
-  styleUrl: './new-task.component.css',
+  templateUrl: "./new-task.component.html",
+  styleUrl: "./new-task.component.css",
 })
 export class NewTaskComponent {
   @Input({ required: true }) userId!: string;
@@ -16,9 +16,9 @@ export class NewTaskComponent {
 
   private tasksService = inject(TasksService);
 
-  enteredTitle = '';
-  enteredSummary = '';
-  enteredDate = '';
+  enteredTitle = "";
+  enteredSummary = "";
+  enteredDate = "";
 
   onCancel() {
     this.close.emit();
