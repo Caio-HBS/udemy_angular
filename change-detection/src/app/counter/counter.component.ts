@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal } from "@angular/core";
 
-import { InfoMessageComponent } from '../info-message/info-message.component';
+import { InfoMessageComponent } from "../info-message/info-message.component";
 
 @Component({
-  selector: 'app-counter',
+  selector: "app-counter",
   standalone: true,
-  templateUrl: './counter.component.html',
-  styleUrl: './counter.component.css',
+  templateUrl: "./counter.component.html",
+  styleUrl: "./counter.component.css",
   imports: [InfoMessageComponent],
 })
 export class CounterComponent {
@@ -14,7 +14,7 @@ export class CounterComponent {
 
   get debugOutput() {
     console.log('[Counter] "debugOutput" binding re-evaluated.');
-    return 'Counter Component Debug Output';
+    return "Counter Component Debug Output";
   }
 
   onDecrement() {
