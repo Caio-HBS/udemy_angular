@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  output,
   signal,
 } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -18,7 +17,7 @@ import { MessagesService } from "../messages.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewMessageComponent {
-  private messageService = inject(MessagesService);
+  private messagesService = inject(MessagesService);
   enteredText = signal("");
 
   get debugOutput() {
@@ -27,7 +26,7 @@ export class NewMessageComponent {
   }
 
   onSubmit() {
-    this.messageService.addMessage(this.enteredText());
+    this.messagesService.addMessage(this.enteredText());
     this.enteredText.set("");
   }
 }

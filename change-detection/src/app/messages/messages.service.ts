@@ -8,6 +8,6 @@ export class MessagesService {
   allMessages = this.messages.asReadonly();
 
   addMessage(message: string) {
-    this.messages.update((prevMessages) => [...prevMessages, message]);
+    this.messages.update((oldMessages) => [...oldMessages, message]);
   }
 }

@@ -10,8 +10,8 @@ import { MessagesService } from "../messages.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessagesListComponent {
-  private messageService = inject(MessagesService);
-  messages = this.messageService.allMessages;
+  private messagesService = inject(MessagesService);
+  messages = this.messagesService.allMessages;
 
   get debugOutput() {
     console.log('[MessagesList] "debugOutput" binding re-evaluated.');
