@@ -18,10 +18,13 @@ export class AppComponent implements OnInit {
   clickCount = signal(0);
 
   private destroyRef = inject(DestroyRef);
-
   constructor() {
     effect(() => {
-      console.log(`Clicked button ${this.clickCount()} time${this.clickCount() === 1 ? "" : "s"}`);
+      console.log(
+        `Clicked button ${this.clickCount()} time${
+          this.clickCount() === 1 ? "" : "s"
+        }`
+      );
     });
   }
 
