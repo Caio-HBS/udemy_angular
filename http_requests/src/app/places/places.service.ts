@@ -1,9 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal } from "@angular/core";
 
-import { Place } from './place.model';
+import { Place } from "./place.model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PlacesService {
   private userPlaces = signal<Place[]>([]);
