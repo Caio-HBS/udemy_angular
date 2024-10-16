@@ -24,7 +24,7 @@ export class UserTasksComponent {
 
 export const resolveUsername: ResolveFn<string> = (
   activatedRoute: ActivatedRouteSnapshot,
-  routesState: RouterStateSnapshot
+  routerState: RouterStateSnapshot
 ) => {
   const usersService = inject(UsersService);
   const username =
@@ -33,4 +33,11 @@ export const resolveUsername: ResolveFn<string> = (
     )?.name || "";
 
   return username;
+};
+
+export const resolveTitle: ResolveFn<string> = (
+  activatedRoute,
+  routerState
+) => {
+  return resolveUsername(activatedRoute, routerState) + "'s Tasks";
 };

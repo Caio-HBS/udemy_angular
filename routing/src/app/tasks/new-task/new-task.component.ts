@@ -2,7 +2,7 @@ import { Component, inject, input, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { TasksService } from "../tasks.service";
-import { Router, RouterLink } from "@angular/router";
+import { CanDeactivateFn, Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-new-task",
@@ -20,6 +20,7 @@ export class NewTaskComponent {
   enteredTitle = signal("");
   enteredSummary = signal("");
   enteredDate = signal("");
+  submitted = false;
 
   onSubmit() {
     this.tasksService.addTask(
@@ -30,8 +31,18 @@ export class NewTaskComponent {
       },
       this.userId()
     );
+    this.submitted = true;
     this.routerService.navigate(["/users", this.userId(), "tasks"], {
       replaceUrl: true,
     });
   }
 }
+
+export const canLeaveEditPage: CanDeactivateFn<NewTaskComponent> = (
+  component
+) => {
+  if (component.submitted) {
+    return window.confirm("Do you really want to leave?");
+  }
+  return true;
+};
